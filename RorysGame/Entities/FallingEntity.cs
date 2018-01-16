@@ -44,7 +44,7 @@ namespace RorysGame
 
         private Color getRandomColor()
         {
-            return Color.Purple;
+            return Color.White;
         }
 
         private float getRandomScale()

@@ -7,7 +7,9 @@ namespace Engine
     public enum AvailableTextures
     {
         star,
-        ball
+        unicorn,
+        rainbow,
+        bracelet
     }
     public enum AvailableFonts
     {
