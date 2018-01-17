@@ -22,6 +22,7 @@ namespace RorysGame
         private Vector2 _speed = Vector2.Zero;
         private float radius;
         private float friction;
+        private float current_rotation = 0f;
 
         public FallingEntity(Texture2D texture, Vector2 position)
         {
@@ -39,6 +40,7 @@ namespace RorysGame
         {
             moveWithAccelerometer();
             checkEdgeCollision();
+            adjustRotation();
             base.onUpdate(gameTime);
         }
 
@@ -102,6 +104,39 @@ namespace RorysGame
             }
 
             return in_collision;
+        }
+
+        private void adjustRotation()
+        {
+            var current_acceleration = AccelerometerSensor.CurrentAcceleration;
+            var accelerometer_hypotenuse = VectorMath.VectorToHypotenuse(current_acceleration);
+            if (Math.Abs(current_acceleration.X) < 0.2f && Math.Abs(current_acceleration.Y) < 0.2f)
+                return;
+
+            var dest_rotation = (float)(VectorMath.VectorToAngle(current_acceleration));
+
+            var rotation_amount = (dest_rotation - current_rotation);
+            if (rotation_amount > Math.PI)
+                rotation_amount = -((float)(2 * Math.PI) - rotation_amount);
+            else if (rotation_amount < -Math.PI)
+                rotation_amount = -((float)-(2 * Math.PI) - rotation_amount);
+
+            float rotation_limit = (float)(Math.PI / 24f);
+
+            if (rotation_amount > rotation_limit)
+                rotation_amount = rotation_limit;
+            else if (rotation_amount < -rotation_limit)
+                rotation_amount = -rotation_limit;
+
+            current_rotation += rotation_amount;
+            if (current_rotation > Math.PI)
+                current_rotation -= (float)(Math.PI * 2f);
+            else if (Sprite.Orientation < -Math.PI)
+                current_rotation += (float)(Math.PI * 2f);
+
+            Sprite.Orientation = current_rotation - (float)(Math.PI / 2f);
+
+
         }
     }
 }

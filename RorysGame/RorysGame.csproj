@@ -68,6 +68,7 @@
     <Compile Include="Rooms\Room_Main.cs" />
     <Compile Include="Utilities\Accelerometer.cs" />
     <Compile Include="Utilities\Utilities.cs" />
+    <Compile Include="Utilities\VectorMath.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

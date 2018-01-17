@@ -19,7 +19,7 @@ namespace Engine
         static SpriteBatch spriteBatch;
 
         public static Color BackgroundColor = Color.WhiteSmoke;
-        public static Vector2 VirtualSize { get { return new Vector2(480, 800); } }
+        public static Vector2 VirtualSize { get { return new Vector2(960, 1600); } }
         public static GraphicsDevice graphicsDevice { get { return graphics.GraphicsDevice; } }
         public static GraphicsDeviceManager Graphics { get { return graphics; } }
         public static BoxingViewportAdapter BoxingViewport;
