@@ -9,7 +9,8 @@ namespace Engine
         star,
         unicorn,
         rainbow,
-        bracelet
+        bracelet,
+        carriage
     }
     public enum AvailableFonts
     {

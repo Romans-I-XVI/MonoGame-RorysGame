@@ -35,6 +35,17 @@
 /processorParam:TextureFormat=Color
 /build:textures/bracelet.png
 
+#begin textures/carriage.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:TextureFormat=Color
+/build:textures/carriage.png
+
 #begin textures/rainbow.png
 /importer:TextureImporter
 /processor:TextureProcessor
